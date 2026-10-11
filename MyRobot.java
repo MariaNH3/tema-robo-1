@@ -1,12 +1,11 @@
-"MyRobot.java"
 package org.firstinspires.ftc.teamcode
-
+    
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name="MyRobot")
+@TeleOp(name = "MyRobot")
 public class MyRobot extends LinearOpMode {
 
     // Declararea componentelor
@@ -56,7 +55,7 @@ public class MyRobot extends LinearOpMode {
             }
 
             // Afișare date pe ecranul
-            telemetry.addData("Clește deschis:", openClaw);
+            telemetry.addData("Clește deschis", openClaw);
             telemetry.addData("Cleste inchis", closedClaw);
             telemetry.addData("Putere Stânga", leftMotor.getPower());
             telemetry.addData("Putere Dreapta", rightMotor.getPower());
