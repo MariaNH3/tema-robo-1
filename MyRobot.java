@@ -1,24 +1,21 @@
 package org.firstinspires.ftc.teamcode
     
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
-
+// inceputul unui OpMode
 @TeleOp(name = "MyRobot")
-public class MyRobot extends LinearOpMode {
+public class MyRobot extends OpMode {
+    // Mapare
+    DcMotor leftMotor;
+    DcMotor rightMotor;
+    Servo armPivot;
+    Servo claw;
 
-    // Declararea componentelor
-    private DcMotor leftMotor = null;
-    private DcMotor rightMotor = null;
-    private Servo armPivot = null;
-    private Servo claw = null;
-
-    boolean claw = gamepad1.x
-  
-
-    @Override public void runOpMode() {
-        // Inițializarea componentelor
+    boolean isPressed = gamepad1.x
+    
+    @Override public void init() {
         leftMotor = hardwareMap.get(DcMotor.class, "motor_left");
         rightMotor = hardwareMap.get(DcMotor.class, "motor_right");
         armPivot = hardwareMap.get(Servo.class, "arm_pivot");
@@ -29,7 +26,6 @@ public class MyRobot extends LinearOpMode {
 
         leftMotor.setPower(0.75);
 
-        // Poziția inițială a cleștelui (pornește închis)
         claw.setPosition(0.0); 
 
         telemetry.addData("Status", "Robotul este gata. Apasa Play!");
