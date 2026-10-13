@@ -12,12 +12,6 @@ public class MyRobot extends OpMode {
     DcMotor rightMotor;
     Servo armPivot;
     Servo claw;
-
-    boolean Claw = gamepad1.x
-    if (gamepad1.x) {
-    Claw.setPosition (openClaw);
-    } else {
-        Claw.setPosition (closedClaw);
     
     @Override public void init() {
         leftMotor = hardwareMap.get(DcMotor.class, "motor_left");
@@ -37,9 +31,18 @@ public class MyRobot extends OpMode {
         telemetry.update();
 
         waitForStart();
-     
+    
 
-        while (opModeIsActive()) {
+       @Override public void loop() {
+            boolean Claw = gamepad1.x
+           if (gamepad1.x && xNuEraApasatInainte) {
+             if (openClaw) {
+                Claw.setPosition(closedClaw)
+        } else { 
+                 Claw.setPosition(openClaw) 
+        }
+    }
+           
             double drive = -gamepad1.left_stick_y;
             double turn = gamepad1.right_x;  
          
