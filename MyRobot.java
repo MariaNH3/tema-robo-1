@@ -13,7 +13,11 @@ public class MyRobot extends OpMode {
     Servo armPivot;
     Servo claw;
 
-    boolean isPressed = gamepad1.x
+    boolean Claw = gamepad1.x
+    if (gamepad1.x) {
+    Claw.setPosition (openClaw);
+    } else {
+        Claw.setPosition (closedClaw);
     
     @Override public void init() {
         leftMotor = hardwareMap.get(DcMotor.class, "motor_left");
@@ -25,7 +29,8 @@ public class MyRobot extends OpMode {
         rightMotor.setDirection(DcMotor.Direction.REVERSE);
 
         leftMotor.setPower(0.75);
-
+        rightMotor.setPower(0.75);
+       
         claw.setPosition(0.0); 
 
         telemetry.addData("Status", "Robotul este gata. Apasa Play!");
@@ -46,7 +51,7 @@ public class MyRobot extends OpMode {
                 
             if (gamepad1.dpad_up) {
                 armPivot.setPosition(0.85);
-            } else if (gamepad1.dpad_down) {
+            } else (gamepad1.dpad_down) {
                 armPivot.setPosition(0.2);
             }
 
